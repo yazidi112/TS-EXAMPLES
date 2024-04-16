@@ -1,0 +1,34 @@
+ interface IService<T,I>{
+    save(a:T):void;
+    getById(i:I):T;
+    getAll():Array<T>;
+}
+
+class A{}
+
+class Service implements IService<A,number>{
+    constructor(public a:string){
+    }
+    save(a:A){
+        console.log(this.a)
+    }
+    getById(i:number):A{
+        return new A();
+    }
+    getAll():Array<A>{
+        return [];
+    }
+     
+}
+
+class AService extends Service{
+
+    constructor(public a:string){
+        super(a);
+    }
+}
+
+let As: Service = new AService("A url:");
+
+As.save(A)
+  
